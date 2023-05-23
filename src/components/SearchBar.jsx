@@ -43,7 +43,7 @@ const SearchBar = () => {
       >
         Search
       </button>
-      {showResults && <SearchResults />}
+      {showResults && <SearchResults data={data} />}
     </div>
   );
 };
