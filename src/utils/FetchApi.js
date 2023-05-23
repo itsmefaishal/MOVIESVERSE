@@ -6,11 +6,8 @@ const ombdUrl = `https://www.omdbapi.com/?apikey=${API_KEY}&`
 
 const fetchData = async (query) => {
     try{
-        const data = await axios.get(ombdUrl + query)
-        .then(json => {
-            // console.log (json)
-            json
-        })
+        const response = await axios.get(`${ombdUrl}s=${query}`)
+        const data = await response.data;
         return data
     }
     catch(error) {
