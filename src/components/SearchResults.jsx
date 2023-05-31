@@ -1,21 +1,22 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const SearchResults = ({data}) => {
-// console.log(data)
+const SearchResults = (results) => {
+console.log(results)
     return (
       <>
       {
-        data &&
-        <div className="search-results">
+        results  && (
+          <div className="search-results">
           search results 
-        </div> 
-        }
+         </div> 
+        )
+      }
       </>
     )
   }
 
-  export default SearchResults;
+export default SearchResults;
 
-// SearchResults.propTypes = {
-//   data : PropTypes.array
-// }
+SearchResults.propTypes = {
+  results : PropTypes.object
+}

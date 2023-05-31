@@ -10,23 +10,25 @@ const SearchBar = () => {
   const [showResults, setShowResults] = useState(false);
   const navigate = useNavigate();
 
+  
+
   const searchQueryHandler = async (event) => {
+    const res = await fetchData(query)
+    setData(res) 
     if((event.key === 'Enter' || event.type === 'click') && query.length !== 0) {
       try{
-        const res = await fetchData(query);
         setShowResults(true)
         navigate(`/search/${query}`) 
-        console.log(res)
-        setData(res)
-        return res
+        console.log(data)
       }
       catch(error) {
         console.log(error)
         return error
       }
+     
     }
-  } 
- console.log(data)
+  }  
+
 
   return (
     <div className="search-bar">
@@ -43,9 +45,9 @@ const SearchBar = () => {
       >
         Search
       </button>
-      {showResults && <SearchResults data={data} />}
+      {showResults && <SearchResults results={data} />}
     </div>
   );
-};
+}
 
 export default SearchBar;
